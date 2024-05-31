@@ -11,7 +11,6 @@ const validateAccount = async (account) => {
         body: JSON.stringify(account),
       });
       const data = await response.json();
-      console.log(data)
       return data;
     } catch (error) {
       throw new Error("Error fetching account");
@@ -29,7 +28,6 @@ const validateAccount = async (account) => {
         body: JSON.stringify(account),
       });
       const data = await response.json();
-      console.log(data)
       return data;
     } catch (error) {
       throw new Error("Error fetching account");

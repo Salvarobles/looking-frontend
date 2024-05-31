@@ -35,13 +35,15 @@ const FormRegisterAccommodation = (props) => {
     handleChangeDescription,
     handleChangePassword,
     handleSubmitAccommodation,
+    handleChangeprice,
+    price,
     alert,
   } = props;
 
   const [cities, setCities] = useState([]);
   const [typesAccommodations, setTypesAccommodations] = useState([]);
 
-  const maxLength = 378;  
+  const maxLength = 378;
 
   const handleChangePostalCode = (value) => {
     // Verificar si el valor es un número y es positivo
@@ -62,7 +64,6 @@ const FormRegisterAccommodation = (props) => {
   const handleChangeHeightTextArea = (event) => {
     const text = event.target.value;
     const remainingCharacters = maxLength - text.length;
-
 
     if (text.length <= 378) {
       handleChangeDescription(text); // Actualizar el estado solo si no excede el límite
@@ -212,9 +213,7 @@ const FormRegisterAccommodation = (props) => {
                 <input
                   type="number"
                   id="codigoPostal"
-                  onChange={(e) =>
-                    handleChangePostalCode(e.target.value)
-                  }
+                  onChange={(e) => handleChangePostalCode(e.target.value)}
                   value={postalCode}
                   className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Código Postal"
@@ -273,9 +272,7 @@ const FormRegisterAccommodation = (props) => {
                 <input
                   type="number"
                   id="numberRooms"
-                  onChange={(e) =>
-                    handleChangeNumberRooms(e.target.value)
-                  }
+                  onChange={(e) => handleChangeNumberRooms(e.target.value)}
                   className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder=""
                   required
@@ -292,9 +289,7 @@ const FormRegisterAccommodation = (props) => {
                 <input
                   type="number"
                   id="maxCapacity"
-                  onChange={(e) =>
-                    handleChangeMaximumCapacity(e.target.value)
-                  }
+                  onChange={(e) => handleChangeMaximumCapacity(e.target.value)}
                   className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder=""
                   value={maximumCapacity}
@@ -303,6 +298,24 @@ const FormRegisterAccommodation = (props) => {
               </div>
             </div>
             <div className="mb-5 transition duration-300 ease-in-out filter hover:drop-shadow-lg">
+              <div className="mb-5 transition duration-300 ease-in-out filter hover:drop-shadow-lg">
+                <label
+                  htmlFor="price"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Maximo de Personas/Habitacion
+                </label>
+                <input
+                  type="number"
+                  id="price"
+                  onChange={(e) => handleChangeprice(e.target.value)}
+                  className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder=""
+                  value={price}
+                  required
+                />
+              </div>
+
               <label
                 htmlFor="description"
                 className="block mb-2 text-sm font-medium text-gray-900"

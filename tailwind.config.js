@@ -9,11 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-      customBlue: "#003f8f",
-      customBackground: '#00118F',
-    },},
+        customBlue: "#003f8f",
+        customBackground: "#00118F",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };
-
-

@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import CarouselCustom from "../../components/CarouselCustom";
 
-const SectionWelcome = () => {
+const SectionWelcome = ({bestAccommodation}) => {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
@@ -12,8 +13,8 @@ const SectionWelcome = () => {
           ideal para tu próxima estancía.
         </p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-          <a
-            href="#"
+          <Link
+            to={'/accomodation'}
             className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-customBlue hover:bg-customBackground focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
           >
             Buscar
@@ -32,11 +33,11 @@ const SectionWelcome = () => {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <CarouselCustom />
+        <CarouselCustom bestAccommodation={bestAccommodation}/>
       </div>
     </section>
   );

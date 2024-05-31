@@ -1,9 +1,10 @@
 import NavbarHeader from "../components/Navbar/NavbarHeader"
 
-const Header = () => {
+const Header = (props) => {
+  const {account, logout} = props;
   return (
     <header>
-      <NavbarHeader /> 
+      <NavbarHeader account={account} logout={logout}/> 
     </header>
   )
 }

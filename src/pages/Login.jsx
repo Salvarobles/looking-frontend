@@ -23,11 +23,8 @@ const Login = () => {
       password : password.trim(),
     }
 
-    console.log(accountForm)
-
     try {
       const data = await validateAccount(accountForm);
-      console.log(data)
       setLoading(false);
 
       if (data.error) {

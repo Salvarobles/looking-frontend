@@ -2,12 +2,12 @@ import { Accordion } from "flowbite-react";
 
 const SectionBestPlace = () => {
   return (
-    <Accordion collapseAll className="w-52">
+    <Accordion collapseAll>
       <Accordion.Panel>
         <Accordion.Title>Las mejores destinos turísticos</Accordion.Title>
         <Accordion.Content>
           <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Descubre los destinos más valorados por nuestros usuarios y
+            Descubre los destinos más valorados por nuestros usuarios y 
             planifica tu proximo viaje con nosotros.
           </p>
         </Accordion.Content>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SpinnerCustom from "../SpinnerCustom";
 
 const FormLogin = (props) => {
@@ -14,11 +15,13 @@ const FormLogin = (props) => {
       <div className="container mx-auto w-3/4 mt-5 py-12 rounded shadow-md hover:shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
           <div className="h-96 lg:h-auto lg:rounded-l flex items-center justify-center ">
-            <img
-              src="/image/logo.png"
-              alt=""
-              className="mx-auto max-h-full transition duration-300 ease-in-out transform hover:scale-105 filter drop-shadow-xl"
-            />
+            <Link to={'/'}>
+              <img
+                src="/image/logo.png"
+                alt=""
+                className="mx-auto max-h-full transition duration-300 ease-in-out transform hover:scale-105 filter drop-shadow-xl"
+              />
+            </Link>
           </div>
           <div className="bg-white p-8 rounded-lg lg:rounded-r">
             <h1 className="font-bold text-center text-3xl lg:text-4xl py-5">
@@ -82,6 +85,19 @@ const FormLogin = (props) => {
                 >
                   Recordarme
                 </label>
+              </div>
+
+              <div className="my-3">
+                <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  No tienes cuenta?{" "}
+                  <Link className="text-blue-700" to={"/register"}>
+                    Registrate
+                  </Link>
+                </span>
+                <br />
+                <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <Link>Recuperar Password</Link>
+                </span>
               </div>
               <button
                 type="submit"

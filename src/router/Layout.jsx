@@ -3,17 +3,16 @@ import { useAuthContext } from "../contexts/useAuthContext";
 import { getAccount } from "../services/mainApi";
 import Header from "../containers/Header";
 import { Outlet } from "react-router-dom";
-import { Footer } from "flowbite-react";
+import FooterPage from "../containers/FooterPage";
 
 const Layout = () => {
-  const { login } = useAuthContext();
+  const { login, account, logout } = useAuthContext();
 
   useEffect(() => {
     const fetchData = async () => {
       const key = localStorage.getItem("looking");
       if (key !== null) {
         const data = await getAccount(key);
-        console.log(data);
         login(data.account);
       }
     };
@@ -23,9 +22,13 @@ const Layout = () => {
 
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Header account={account} logout={logout} />
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+        <FooterPage />
+      </div>
     </>
   );
 };

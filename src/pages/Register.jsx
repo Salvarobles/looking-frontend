@@ -7,8 +7,11 @@ import ButtonGroup from "../components/ButtonGroup";
 import FormRegisterUser from "../components/Forms/FormRegisterUser";
 import FormRegisterAccommodation from "../components/Forms/FormRegisterAccommodation";
 import { createAccommodation } from "../services/accommodationApi";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../contexts/useAuthContext";
 
 const Register = () => {
+  const { login } = useAuthContext();
   // Estado para los formularios (true --> userForm, false -->accommodationForm)
   const [form, setForm] = useState(true);
 
@@ -40,6 +43,9 @@ const Register = () => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
+
+  const navigate = useNavigate();
 
   // Función para verificar la validez del correo electrónico
   const isValidEmail = (email) => {
@@ -115,29 +121,30 @@ const Register = () => {
     setLoading(true);
 
     const accommodationObject = {
-      email : email.trim().toLocaleLowerCase(),
-      name : name.trim(),
-      password : password.trim(),
-      address : address.trim(),
-      city : city.trim(),
-      postalCode : postalCode.trim(),
+      email: email.trim().toLocaleLowerCase(),
+      name: name.trim(),
+      password: password.trim(),
+      address: address.trim(),
+      city: city.trim(),
+      postalCode: postalCode.trim(),
       typeAccommodation,
-      numberRooms : numberRooms.trim(),
-      maximumCapacity : maximumCapacity.trim(),
+      numberRooms: numberRooms.trim(),
+      maximumCapacity: maximumCapacity.trim(),
       checkIn,
       checkOut,
       description: description.trim(),
+      price: price.trim(),
       img,
     };
 
-    console.log(accommodationObject);
 
     // llamar a la api para hacer el post y crear el accomodation
     try {
       const responseData = await createAccommodation(accommodationObject);
       setAlert(responseData);
-      console.log(responseData);
+
       setLoading(false);
+      navigate("/login");
       // Limpiamos el formulario
       setEmail("");
       setName("");
@@ -152,6 +159,7 @@ const Register = () => {
       setCheckIn(0);
       setCheckOut(0);
       setDescription("");
+      setPrice(0);
       setPaginaActual(1);
     } catch (error) {
       console.error("Error:", error.message);
@@ -186,9 +194,9 @@ const Register = () => {
     }
 
     const userObject = {
-      email : email.trim().toLocaleLowerCase(),
-      name : name.trim(),
-      surname : surname.trim(),
+      email: email.trim().toLocaleLowerCase(),
+      name: name.trim(),
+      surname: surname.trim(),
       birthday,
       password: password.trim(),
       avatar,
@@ -197,8 +205,10 @@ const Register = () => {
     // llamar a la api para hacer el post y crear el usuario
     try {
       const responseData = await createUser(userObject);
-      setAlert(responseData);
+      setAlert(responseData.message);
       setLoading(false);
+      login(responseData.user);
+      navigate("/");
       // Limpiamos el formulario
       setEmail("");
       setName("");
@@ -216,17 +226,26 @@ const Register = () => {
       <div className="container rounded shadow-md hover:shadow-lg">
         <div className="my-4 lg:my-0 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
           <div className="flex items-center justify-center lg:flex lg:justify-start lg:h-auto lg:rounded-l">
-            <img
-              src="/image/logo.png"
-              alt=""
-              className="mx-auto max-h-full transition duration-300 ease-in-out transform hover:scale-105 filter drop-shadow-xl sm:block"
-            />
+            <Link to={"/"} className="mx-auto">
+              <img
+                src="/image/logo.png"
+                alt=""
+                className="mx-auto max-h-full transition duration-300 ease-in-out transform hover:scale-105 filter drop-shadow-xl sm:block"
+              />
+            </Link>
           </div>
           <div className="flex justify-center items-center">
             <div className="bg-white lg:p-8 rounded-lg rounded-r h-full">
               <h1 className="font-bold text-center text-3xl lg:text-4xl py-5">
                 Registrase en Looking!
               </h1>
+              <p className="mb-2">
+                Si quieres vovler al{" "}
+                <Link className="text-blue-600" to={"/"}>
+                  Home
+                </Link>{" "}
+                pincha en el logo
+              </p>
               {loading ? (
                 <SpinnerCustom />
               ) : (
@@ -276,6 +295,8 @@ const Register = () => {
                       handleChangeDescription={setDescription}
                       handleChangePassword={setPassword}
                       handleSubmitAccommodation={handleSubmitAccommodation}
+                      handleChangeprice={setPrice}
+                      price={price}
                       alert={alert}
                     />
                   )}
