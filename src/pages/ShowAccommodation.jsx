@@ -21,6 +21,8 @@ const ShowAccommodation = () => {
   const [room, setRoom] = useState(0);
   const [numberAdults, setNumberAdults] = useState(1);
 
+  const [update, setUpdate] = useState(false);
+
   const [openModal, setOpenModal] = useState(false);
 
   let startDateFormatted = formatDate(startDate);
@@ -52,6 +54,7 @@ const ShowAccommodation = () => {
           icon: "error",
           title: "Lo siento su reserva no ha podido ser generada.",
         });
+        setUpdate(!update);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -76,7 +79,7 @@ const ShowAccommodation = () => {
     };
 
     fetchAccommodation();
-  }, []);
+  }, [update]);
 
   return (
     <>
@@ -87,8 +90,8 @@ const ShowAccommodation = () => {
           </div>
         ) : (
           <>
-            <div className="flex justify-around mx-10 my-5">
-              <div className="w-1/2">
+            <div className="flex-col my-5 lg:flex lg:flex-row">
+              <div className="w-2/2 lg:w-1/2">
                 <SectionInformationAccommodation
                   setOpenModal={setOpenModal}
                   accommodation={accommodation}
@@ -98,16 +101,16 @@ const ShowAccommodation = () => {
                   handleChangeRoom={setRoom}
                 />
               </div>
-              <div className="w-1/2">
+              <div className="w-2/2 lg:w-1/2">
                 <GalleryImage img={accommodation.img} />
               </div>
             </div>
-            <div className="m-12 flex flex-row ">
-              <div className="border w-1/2">
+            <div className="m-12 flex-nowrap lg:flex lg:flex-row">
+              <div className="w-2/2 lg:w-1/2">
                 <ShowReviews reviews={accommodation.reviews} />
               </div>
-              <div className="w-1/2">
-                <SendComent />
+              <div className="w-2/2 lg:w-1/2">
+                <SendComent setUpdate={setUpdate} update={update} idAccommodation={accommodation.id}/>
               </div>
             </div>
 

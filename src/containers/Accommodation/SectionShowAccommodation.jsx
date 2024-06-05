@@ -1,7 +1,6 @@
 import CardAccommodation from "../../components/CardAccommodation";
 
 const SectionShowAccommodation = ({ accommodations, handleShowProduct }) => {
-  console.log(accommodations)
   return (
     <div className="flex flex-wrap justify-center gap-14 my-10">
       {accommodations.map((accommodation) => (

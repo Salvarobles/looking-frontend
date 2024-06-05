@@ -4,7 +4,7 @@ const SectionBestPlace = () => {
   return (
     <Accordion collapseAll>
       <Accordion.Panel>
-        <Accordion.Title>Las mejores destinos turísticos</Accordion.Title>
+        <Accordion.Title>Los mejores destinos turísticos</Accordion.Title>
         <Accordion.Content>
           <p className="mb-2 text-gray-500 dark:text-gray-400">
             Descubre los destinos más valorados por nuestros usuarios y 

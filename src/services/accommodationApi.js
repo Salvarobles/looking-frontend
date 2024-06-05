@@ -85,6 +85,7 @@ const getAccommodationsSearch = async (filter) => {
       body: JSON.stringify(filter),
     });
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     throw new Error("Error fetching accommodation" + error);
@@ -122,6 +123,7 @@ const getAccommodation = async (idAccommodation, startDate, endDate) => {
   }
 };
 
+
 export {
   getAllTypesAccommodations,
   createAccommodation,
@@ -131,5 +133,5 @@ export {
   getAccommodations,
   getAccommodationsSearch,
   getAccommodationExpensive,
-  getAccommodation,
+  getAccommodation
 };

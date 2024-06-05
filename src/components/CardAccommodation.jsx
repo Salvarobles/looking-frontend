@@ -43,9 +43,11 @@ const CardAccommodation = (props) => {
           {name} - {city}
         </h5>
 
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          {`Max Personas: ${maximumCapacity}`}
-        </h5>
+        {maximumCapacity && (
+          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            {`Max Personas: ${maximumCapacity}`}
+          </h5>
+        )}
 
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -68,10 +70,12 @@ const CardAccommodation = (props) => {
             {" "}
             {formattedReview === "N/A" ? "Out" : formattedReview}
           </span>
-          <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800 ms-3">
-            {" "}
-            {"Tipo: " + `${typeAccommodation}`}
-          </span>
+          {typeAccommodation && (
+            <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800 ms-3">
+              {" "}
+              {"Tipo: " + `${typeAccommodation}`}
+            </span>
+          )}
         </div>
         <div className="flex items-center justify-between">
           <span className="text-3xl font-bold text-gray-900 dark:text-white">

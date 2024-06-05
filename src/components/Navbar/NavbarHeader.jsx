@@ -70,11 +70,18 @@ const NavbarHeader = ({ account, logout }) => {
             <Navbar.Toggle />
           </>
         ) : (
-          <Link to={"/login"}>
-            <Button className="bg-customBlue enabled:hover:bg-customBackground mr-5">
-              <p className="text-xl">Iniciar Sesión</p>
-            </Button>
-          </Link>
+          <>
+            <Link to={"/login"}>
+              <Button className="bg-customBlue enabled:hover:bg-customBackground mr-5">
+                <p className="text-lg">Iniciar Sesión</p>
+              </Button>
+            </Link>
+            <Link to={'/register'}>
+              <Button className="bg-customBlue enabled:hover:bg-customBackground mr-5">
+                <p className="text-lg">Registrarse</p>
+              </Button>
+            </Link>
+          </>
         )}
       </div>
       <Navbar.Collapse>

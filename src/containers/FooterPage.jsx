@@ -14,26 +14,26 @@ const FooterPage = () => {
               name="Looking"
             />
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:flex sm:justify-between">
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Looking</Footer.Link>
-                <Footer.Link href="#">Salvador Robles Gómez</Footer.Link>
+                <Link to={'/'}><Footer.Link>Looking</Footer.Link></Link>
+                <Link to={'salva-robles'}><Footer.Link>Salvador Robles Gómez</Footer.Link></Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Github</Footer.Link>
-                <Footer.Link href="#">Linkedin</Footer.Link>
+                <Footer.Link href="https://github.com/Salvarobles/">Github</Footer.Link>
+                <Footer.Link href="https://www.linkedin.com/in/salvador-robles-g%C3%B3mez-613ba329b/">Linkedin</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Privacy Policy</Footer.Link>
-                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+                <Footer.Link>Privacy Policy</Footer.Link>
+                <Footer.Link>Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -44,7 +44,7 @@ const FooterPage = () => {
             <Footer.Copyright by="Looking" year={2024} />
           </Link>
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsGithub} />
+            <Footer.Icon href="https://github.com/Salvarobles/" icon={BsGithub} />
           </div>
         </div>
       </div>

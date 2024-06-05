@@ -34,7 +34,7 @@ const SectionInformationAccommodation = ({
       <h3 className="text-3xl font-bold dark:text-white mb-3">
         {accommodation?.name}
       </h3>
-      <div className="flex items-center gap-7 mb-3">
+      <div className="flex-row gap-5 mb-3 lg:flex lg:flex-row">
         <h3 className="text-2xl font-bold dark:text-white">
           Precio: {accommodation?.price}€ / noche
         </h3>
@@ -76,7 +76,7 @@ const SectionInformationAccommodation = ({
         <strong>Fechas Seleccionadas: </strong> {startDate + " - " + endDate}
       </h3>
       <div>
-        <div className="max-w-md mx-5 flex gap-14 ">
+        <div className="flex-col items-center justify-center mx-auto">
           <div className="flex-col justify-center items-center">
             <div className=" mb-2 block ">
               <Label

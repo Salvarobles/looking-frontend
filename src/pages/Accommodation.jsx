@@ -66,14 +66,22 @@ const Accommodation = () => {
       return;
     }
 
+    console.log(city)
+
     const filter = {
       city: city.trim(),
-      startDate,
-      endDate,
     };
 
-    const response = await getAccommodationsSearch(filter);
-    setAccommodations(response);
+    try {
+      const response = await getAccommodationsSearch(filter);
+      setAccommodations(response);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Error al buscar la ciudad`,
+        text: error.message,
+      });
+    }
   };
 
   const handleShowProduct = (e, id) => {
