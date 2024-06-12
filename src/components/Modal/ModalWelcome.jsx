@@ -2,6 +2,12 @@ import { Modal } from "flowbite-react";
 import React from "react";
 import { useAuthContext } from "../../contexts/useAuthContext";
 
+/**
+ * Componente ModalWelcome para mostrar un mensaje de bienvenida.
+ * @param {Object} props - Las propiedades pasadas al componente.
+ * @returns {JSX.Element} - El JSX del componente ModalWelcome.
+ */
+
 const ModalWelcome = (props) => {
   const { openModal, openModalWelcome, closeModalWelcome } = useAuthContext();
 

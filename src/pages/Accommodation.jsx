@@ -66,8 +66,6 @@ const Accommodation = () => {
       return;
     }
 
-    console.log(city)
-
     const filter = {
       city: city.trim(),
     };

@@ -2,6 +2,21 @@ import { Button, Modal } from "flowbite-react";
 import React from "react";
 import { useAuthContext } from "../../contexts/useAuthContext";
 
+/**
+ * Componente ModalReservation para mostrar un modal de reserva.
+ * @param {Object} props - Las propiedades pasadas al componente.
+ * @param {boolean} props.openModal - Estado que controla la visibilidad del modal.
+ * @param {function} props.setOpenModal - Función para actualizar el estado de visibilidad del modal.
+ * @param {number} props.numberAdults - Número de adultos en la reserva.
+ * @param {Object} props.room - Información de la habitación reservada.
+ * @param {Date} props.startDate - Fecha de inicio de la reserva.
+ * @param {Date} props.endDate - Fecha de finalización de la reserva.
+ * @param {number} props.price - Precio total de la reserva.
+ * @param {Object} props.accommodation - Información del alojamiento reservado.
+ * @param {function} props.handleCreateReservation - Función para crear la reserva.
+ * @returns {JSX.Element} - El JSX del componente ModalReservation.
+ */
+
 const ModalReservation = (props) => {
   const {
     openModal,

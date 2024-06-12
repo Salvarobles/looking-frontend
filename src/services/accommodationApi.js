@@ -116,6 +116,7 @@ const getAccommodation = async (idAccommodation, startDate, endDate) => {
       },
       body: JSON.stringify(accommodation),
     });
+    console.log(accommodation)
     const data = await response.json();
     return data;
   } catch (error) {

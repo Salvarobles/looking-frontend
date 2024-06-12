@@ -1,3 +1,8 @@
+/**
+ * Función para formatear una cadena de fecha en el formato "hora:minutos".
+ * @param {string} dateString - La cadena de fecha a formatear.
+ * @returns {string} - La hora formateada.
+ */
 const formatHour = (dateString) => {
     const date = new Date(dateString);
 

@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import SpinnerCustom from "../SpinnerCustom";
 
+/**
+ * Componente de formulario de inicio de sesión.
+ * @param {object} props - Las propiedades pasadas al componente.
+ * @returns {JSX.Element} - El JSX del formulario de inicio de sesión.
+ */
 const FormLogin = (props) => {
+  // Extrae las propiedades pasadas al componente
   const {
-    loading,
-    error,
-    handleChangeEmail,
-    handleChangePassword,
-    handleChangeRememberMe,
-    handleSubmit,
+    loading, // Indica si hay una operación de carga en curso
+    error, // Contiene un mensaje de error si hay algún problema
+    handleChangeEmail, // Función para manejar el cambio de email
+    handleChangePassword, // Función para manejar el cambio de contraseña
+    handleChangeRememberMe, // Función para manejar el cambio de la opción "Recordarme"
+    handleSubmit, // Función para manejar el envío del formulario
   } = props;
   return (
     <div className="flex justify-center items-center h-screen">

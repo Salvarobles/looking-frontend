@@ -3,6 +3,11 @@ import { getAllCities } from "../../services/cityApi";
 import { getAllTypesAccommodations } from "../../services/accommodationApi";
 import Swal from "sweetalert2";
 
+/**
+ * Componente de formulario de registro accommodation.
+ * @param {object} props - Las propiedades pasadas al componente.
+ * @returns {JSX.Element} - El JSX del formulario de registro accommodation.
+ */
 const FormRegisterAccommodation = (props) => {
   const {
     email,
@@ -303,7 +308,7 @@ const FormRegisterAccommodation = (props) => {
                   htmlFor="price"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Maximo de Personas/Habitacion
+                  Precio/persona
                 </label>
                 <input
                   type="number"

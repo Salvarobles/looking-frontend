@@ -1,4 +1,11 @@
 const FormRegisterUser = (props) => {
+
+/**
+ * Componente de formulario de inicio de sesión.
+ * @param {object} props - Las propiedades pasadas al componente.
+ * @returns {JSX.Element} - El JSX del formulario de inicio de sesión.
+ */
+
   const {
     handleChangeEmail,
     handleChangeName,

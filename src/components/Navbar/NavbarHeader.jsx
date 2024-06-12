@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_IMG_URL;
 
+/**
+ * Componente NavbarHeader para la cabecera de la barra de navegación.
+ * @param {Object} props - Las propiedades pasadas al componente.
+ * @param {Object} props.account - Información de la cuenta del usuario.
+ * @param {function} props.logout - Función para cerrar sesión.
+ * @returns {JSX.Element} - El JSX del componente NavbarHeader.
+ */
+
 const NavbarHeader = ({ account, logout }) => {
   let img;
   if (account) {
@@ -76,7 +84,7 @@ const NavbarHeader = ({ account, logout }) => {
                 <p className="text-lg">Iniciar Sesión</p>
               </Button>
             </Link>
-            <Link to={'/register'}>
+            <Link to={"/register"}>
               <Button className="bg-customBlue enabled:hover:bg-customBackground mr-5">
                 <p className="text-lg">Registrarse</p>
               </Button>

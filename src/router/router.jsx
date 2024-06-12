@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <ShowAccommodation />,
       },
       {
-        element: <ProtectedRouteAdmin redirect="" />,
+        element: <ProtectedRouteAdmin redirect="/" />,
         children: [
           { path: "/listaccommodations", element: <ListAccommodation /> },
         ],
